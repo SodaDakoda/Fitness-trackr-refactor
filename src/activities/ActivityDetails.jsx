@@ -39,19 +39,29 @@ export default function ActivityDetails() {
 
   return (
     <>
-      <h1>{activity.name}</h1>
+      <button
+        className="btn-secondary"
+        onClick={() => navigate("/activities")}
+        style={{ marginBottom: "16px" }}
+      >
+        ← Back to Activities
+      </button>
 
-      <p>{activity.description}</p>
+      <section className="card activity-details-card">
+        <header>
+          <h1>{activity.name}</h1>
+          <p className="activity-meta">{activity.description}</p>
+          <p className="activity-meta">
+            <strong>Created by:</strong> {activity.creatorName}
+          </p>
+        </header>
 
-      <p>
-        <strong>Created by:</strong> {activity.creatorName}
-      </p>
-
-      {token && (
-        <button onClick={handleDelete} className="btn-danger">
-          Delete Activity
-        </button>
-      )}
+        {token && (
+          <button onClick={handleDelete} className="btn-danger">
+            Delete Activity
+          </button>
+        )}
+      </section>
     </>
   );
 }
