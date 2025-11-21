@@ -59,3 +59,10 @@ export async function deleteActivity(token, id) {
 
   return result;
 }
+
+export async function getActivityById(id) {
+  const response = await fetch(`${API}/activities/${id}`);
+  const data = await response.json();
+  if (!response.ok) throw Error(data.message);
+  return data;
+}

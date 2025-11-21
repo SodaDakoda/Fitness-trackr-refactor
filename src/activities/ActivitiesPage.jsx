@@ -37,7 +37,7 @@ export default function ActivitiesPage() {
       {error && <p role="alert">{error}</p>}
 
       <div className="activities-layout">
-        <ActivityList activities={activities} onDelete={handleDelete} />
+        <ActivityList activities={activities} />
 
         <section className="activity-form-section">
           <h2>Add Activity</h2>
